@@ -19,7 +19,7 @@
 
                     <h1 class="profilee-user-name">{{$user->user_name}}</h1>
 
-                    <button class="btn profilee-edit-btn">Edit Profilee</button>
+                    <a href="{{route('profile.edit')}}" class="btn profilee-edit-btn">Edit Profilee</a>
 
                     <button class="btn profilee-settings-btn" aria-label="profilee settings"><i class="fas fa-cog"
                             aria-hidden="true"></i></button>
@@ -38,10 +38,8 @@
 
                 <div class="profilee-bio">
 
-                    <p><span class="profilee-real-name">{{$user->name}}</span><br>Lorem ipsum dolor, sit amet
-                        consectetur adipisicing elit. Quas veniam error unde nemo dolorem quod dolore ducimus
-                        temporibus. Blanditiis nisi voluptate, adipisci voluptatibus incidunt error similique nostrum
-                        voluptas soluta temporibus. {{$user->bio}} <br> {{$user->website}}
+                    <p><span class="profilee-real-name">{{$user->name}}</span><br>{{$user->bio}}<br>
+                        <a href="#">{{$user->website}}</a>
                     </p>
 
                 </div>
@@ -62,13 +60,13 @@
 
 
 {{-- <div class="col-3">
-                    <img class="is-rounded p-3" src="{{ asset('images/avatar/'. $user->image) }}"
+                    <img class="is-rounded p-3" src="{{ asset('images/avatar/'. $user ?? ''->image) }}"
 style="width: 11rem; height: 11rem;">
 </div>
 <div class="col">
     <div class="row">
         <div class="col-3">
-            <h2>{{$user->user_name}}</h2>
+            <h2>{{$user ?? ''->user_name}}</h2>
 
         </div>
         <span class="col-4">

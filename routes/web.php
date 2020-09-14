@@ -21,5 +21,8 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
         return view('layouts.app');
     });
     Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('/profile', 'UserController')->except(['index', 'edit', 'show', 'update']);
     Route::get('/profile', 'UserController@index')->name('profile');
+    Route::get('/profile/edit', 'UserController@edit')->name('profile.edit');
+    Route::put('/profile/update', 'UserController@update')->name('profile.update');
 });

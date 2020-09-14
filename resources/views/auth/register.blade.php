@@ -10,7 +10,7 @@
             @csrf
             <div class="form-group">
                 <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="User Name"
-                    @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}"
+                    @error('user_name') is-invalid @enderror name="user_name" value="{{ old('user_name') }}"
                     autocomplete="user_name" autofocus>
 
                 @error('user_name')
@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Full Name"
-                    @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name"
+                    @error('name') is-invalid @enderror name="name" value="{{ old('name') }}" autocomplete="name"
                     autofocus>
 
                 @error('name')
@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                    placeholder="Email Address" @error('email') is-invalid @enderror" name="email"
+                    placeholder="Email Address" @error('email') is-invalid @enderror name="email"
                     value="{{ old('email') }}" autocomplete="email">
 
                 @error('email')
@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
                 <input type="text" class="form-control form-control-user" id="exampleInputEmail"
-                    placeholder="Phone Number" @error('phone_number') is-invalid @enderror" name="phone_number"
+                    placeholder="Phone Number" @error('phone_number') is-invalid @enderror name="phone_number"
                     value="{{ old('phone_number') }}" autocomplete="phone_number">
 
                 @error('phone_number')
@@ -56,7 +56,7 @@
             <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="password" class="form-control form-control-user" id="exampleInputPassword"
-                        placeholder="Password" @error('password') is-invalid @enderror" name="password"
+                        placeholder="Password" @error('password') is-invalid @enderror name="password"
                         autocomplete="new-password">
 
                     @error('password')
@@ -74,12 +74,12 @@
             <div class="form-group text-center">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male"
-                        @error('gender') is-invalid @enderror" value="{{ old('gender') }}">
+                        @error('gender') is-invalid @enderror value="{{ old('gender') }}">
                     <label class="form-check-label" for="inlineRadio1">Male</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female"
-                        @error('gender') is-invalid @enderror" value="{{ old('gender') }}">
+                        @error('gender') is-invalid @enderror value="{{ old('gender') }}">
                     <label class="form-check-label" for="inlineRadio2">Female</label>
                 </div>
                 <div class="text-center">

@@ -25,4 +25,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     Route::get('/profile', 'UserController@index')->name('profile');
     Route::get('/profile/edit', 'UserController@edit')->name('profile.edit');
     Route::put('/profile/update', 'UserController@update')->name('profile.update');
+    Route::get('/profile/setting', 'UserController@setting')->name('profile.setting');
+    Route::get('/profile/setting/disable', 'UserController@disable')->name('profile.disable');
+    Route::put('/profile/setting/update-password', 'UserController@updatePassword')->name('profile.updatePassword');
 });

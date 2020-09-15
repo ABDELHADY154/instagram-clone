@@ -21,8 +21,8 @@
 
                     <a href="{{route('profile.edit')}}" class="btn profilee-edit-btn">Edit Profilee</a>
 
-                    <button class="btn profilee-settings-btn" aria-label="profilee settings"><i class="fas fa-cog"
-                            aria-hidden="true"></i></button>
+                    <a href="{{route('profile.setting')}}" class="btn profilee-settings-btn"
+                        aria-label="profilee settings"><i class="fas fa-cog" aria-hidden="true"></i></a>
 
                 </div>
 

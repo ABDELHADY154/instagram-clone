@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\User;
-// use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -52,22 +52,7 @@ class UserController extends Controller
 
         ]);
 
-        //Update image if new one provided
-        if (null !== $request->image) {
-            // $imageName = time() . '.' . $request->image;
 
-            // // $request->image->move(public_path('images') . '/avatar/', $imageName);
-
-            // $user->image = $imageName;
-            // $image_path = $request->image;
-            // $image_path_name = time() . $image_path;
-            // dd($image_path_name);
-            // Storage::putFile('avatars', $image_path_name);
-            // Storage::disk('users')->put($image_path_name, File::get($image_path));
-            // $user->image = $image_path_name;
-        } else {
-            $user->image = 'default.png';
-        }
         $user->image = 'default.png';
         strlen($request->name) > 0 ? $user->name = $request->name : '';
         strlen($request->bio) > 0 ? $user->bio = $request->bio : '';
@@ -78,9 +63,31 @@ class UserController extends Controller
         strlen($request->website) > 0 ? $user->website = $request->website : '';
 
         $user->save();
-        // dd($user);
         return redirect(route('profile'));
-        // dd($request->all());
-        // return view('layouts.User.index');
+    }
+
+    public function setting()
+    {
+        return view('layouts.User.setting');
+    }
+    public function disable()
+    {
+        // User::withTrashed()->find($post_id)->restore(); //restore soft delete
+        $id = auth()->user()->id;
+        $user = User::find($id);
+        $user->delete();
+        return redirect(route('home'));
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $user = User::find(Auth::id());
+        $request->validate([
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+        $request->user()->fill([
+            'password' => Hash::make($request->password)
+        ])->save();
+        return redirect(route('profile'));
     }
 }

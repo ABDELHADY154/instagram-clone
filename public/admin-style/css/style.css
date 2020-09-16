@@ -32,11 +32,11 @@ img {
     display: block;
 }
 
-/* .container {
+.container-img {
     max-width: 93.5rem;
     margin: 0 auto;
     padding: 0 2rem;
-} */
+}
 
 /* .btn {
     display: inline-block;
@@ -193,7 +193,7 @@ img {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    font-size: 2rem;
+    font-size: 1rem;
     text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
 }
 
@@ -206,6 +206,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    max-height: 20rem;
 }
 
 /* Loader */
@@ -438,4 +439,86 @@ Remove or comment-out the code block below to see how the browser will fall-back
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+/* 000000000000000 */
+
+a {
+    text-decoration: none;
+}
+
+.Instagram-card {
+    background: #ffffff;
+    border: 1px solid #f2f2f2;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.Instagram-card-header {
+    padding: 20px;
+    height: 40px;
+}
+
+.Instagram-card-user-image {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+.Instagram-card-time {
+    float: right;
+    width: 80px;
+    padding-top: 10px;
+    text-align: right;
+    color: #999;
+}
+
+.Instagram-card-user-name {
+    margin-left: 20px;
+    font-weight: bold;
+    color: #262626;
+}
+
+.Instagram-card-content {
+    padding: 20px;
+}
+
+.Likes {
+    font-weight: bold;
+}
+
+.Instagram-card-content-user {
+    font-weight: bold;
+    color: #262626;
+}
+
+.hashtag {
+    color: #003569;
+}
+
+.comments {
+    color: #999;
+}
+
+.user-comment {
+    color: #003569;
+}
+
+.Instagram-card-footer {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-action-icons {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.comments-input {
+    border: none;
+    margin-left: 10px;
+    width: 100%;
 }

@@ -48,36 +48,37 @@
         </div>
 
 
+
     </div>
 
 </div>
+<hr>
+<div class="container-img">
+    <div class="gallery">
+        <div class="row">
+            @foreach($posts as $post)
+            <div class="col-4">
+                <div class="gallery-item mt-4" tabindex="0">
 
+                    <div class="gallery-image" style="">
+                        <img src=" {{ asset('images/posts/'. $post->image) }}" class="gallery-image" alt="">
+                    </div>
 
-
-{{-- <div class="card bg-transparent">
-
-            <div class="card-body text-center"> --}}
-
-
-{{-- <div class="col-3">
-                    <img class="is-rounded p-3" src="{{ asset('images/avatar/'. $user ?? ''->image) }}"
-style="width: 11rem; height: 11rem;">
-</div>
-<div class="col">
-    <div class="row">
-        <div class="col-3">
-            <h2>{{$user ?? ''->user_name}}</h2>
-
+                    <div class="gallery-item-info">
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i
+                                    class="fas fa-heart" aria-hidden="true"></i> {{$post->like_no}}</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i
+                                    class="fas fa-comment" aria-hidden="true"></i> {{$post->comment_no}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @endforeach
         </div>
-        <span class="col-4">
-            <a href="#" class="btn btn-outline-dark">Edit Profile</a>
-        </span>
-        <div class="col-2">elshamy</div>
     </div>
-</div> --}}
-{{-- </div> --}}
-
-
+    <div class="loader"></div>
+</div>
 
 
 @endsection

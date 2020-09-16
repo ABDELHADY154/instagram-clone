@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="https://1000logos.net/wp-content/uploads/2017/02/Instagram-Logo.png">
     <title>{{ config('app.name') }} | @yield('title')</title>
 
     <!-- Scripts -->
@@ -24,6 +23,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="/admin-style/css/style.css" rel="stylesheet">
 
+    <link rel="icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/768px-Instagram_logo_2016.svg.png">
 
 </head>
 

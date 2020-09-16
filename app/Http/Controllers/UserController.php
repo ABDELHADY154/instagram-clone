@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\File;
@@ -22,10 +23,10 @@ class UserController extends Controller
     {
         $id = auth()->user()->id;
         $user = User::find($id);
-        // $user = \Auth::user()->find($id);
+        $posts = Post::where('user_id', $id)->get();
 
         return view('layouts.User.index', [
-            'user' => $user
+            'posts' => $posts,  'user' => $user,
         ]);
     }
 

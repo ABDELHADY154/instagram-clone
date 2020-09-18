@@ -91,4 +91,15 @@ class UserController extends Controller
         ])->save();
         return redirect(route('profile'));
     }
+
+    public function profileView($id)
+    {
+        // $id = auth()->user()->id;
+        $user = User::find($id);
+        $posts = Post::where('user_id', $id)->get();
+
+        return view('layouts.User.index', [
+            'posts' => $posts,  'user' => $user,
+        ]);
+    }
 }

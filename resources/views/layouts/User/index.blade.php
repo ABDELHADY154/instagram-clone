@@ -29,7 +29,7 @@
                 <div class="profilee-stats">
 
                     <ul class="">
-                        <li><span class="profilee-stat-count">164</span> posts</li>
+                        <li><span class="profilee-stat-count">{{count($posts)}}</span> posts</li>
                         <li><span class="profilee-stat-count">188</span> followers</li>
                         <li><span class="profilee-stat-count">206</span> following</li>
                     </ul>

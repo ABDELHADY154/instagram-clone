@@ -11,7 +11,7 @@
                     <img src=" {{ asset('images/avatar/'. $post->user->image) }}"
                         class="Instagram-card-user-image d-inline">
                     <a class="Instagram-card-user-name"
-                        href="https://www.instagram.com/rogersbase/">{{$post->user->user_name}}</a>
+                        href="{{route('profile.view',$post->user->id)}}">{{$post->user->user_name}}</a>
 
                 </div>
                 <div class="Instagram-card-image">

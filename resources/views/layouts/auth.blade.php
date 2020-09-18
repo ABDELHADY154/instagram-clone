@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="https://1000logos.net/wp-content/uploads/2017/02/Instagram-Logo.png">
+    <link rel="icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/768px-Instagram_logo_2016.svg.png">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Custom fonts for this template-->
     <link href="/admin-style/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

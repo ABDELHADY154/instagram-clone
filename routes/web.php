@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
+// ******Facebook Login*******//
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider')->name('login-facebook');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback')->name('facebook-callback');
+
 
 Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     Route::get('/', function () {

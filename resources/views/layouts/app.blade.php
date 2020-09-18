@@ -74,8 +74,8 @@
                                     class="caret"></b></a> --}}
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img src="{{ asset('images/avatar/'.auth()->user()->image) }}"
-                                    class="profile-image img-circle d-inline" style="width: 2.5rem; height: 2.5rem;">
+                                <img src="{{asset('storage/images/avatars/'. Auth::user()->avatar) }}"
+                                    class=" profile-image img-circle d-inline" style="width: 2.5rem; height: 2.5rem;">
                                 {{ Auth::user()->user_name }}
                             </a>
 

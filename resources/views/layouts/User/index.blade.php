@@ -10,8 +10,8 @@
 
                 <div class="profilee-image">
 
-                    <img class="is-rounded" src="{{ asset('images/avatar/'. $user->image) }}"
-                        style="width: 11rem; height: 11rem;">
+                    <img class="is-rounded" src="{{asset('storage/images/avatars/'. $user->avatar) }}"
+                        style=" width: 11rem; height: 11rem;">
 
                 </div>
 

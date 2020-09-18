@@ -8,7 +8,7 @@
             @foreach($posts as $post)
             <div class="card mt-3">
                 <div class="card-header bg-white">
-                    <img src=" {{ asset('images/avatar/'. $post->user->image) }}"
+                    <img src=" {{asset('storage/images/avatars/'. $post->user->avatar) }}"
                         class="Instagram-card-user-image d-inline">
                     <a class="Instagram-card-user-name"
                         href="{{route('profile.view',$post->user->id)}}">{{$post->user->user_name}}</a>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\editProfileRequest;
 use App\Post;
 use App\User;
 use Illuminate\Contracts\Session\Session;
@@ -38,23 +39,20 @@ class UserController extends Controller
         return view('layouts.User.edit', ['user' => $user]);
     }
 
-    public function update(Request $request)
+    public function update(editProfileRequest $request)
     {
         $user = User::find(Auth::id());
-        $request->validate([
-            'name' => ['required', 'string'],
-            'user_name' => ['required', 'string'],
-            'email' => ['required', 'email'],
-            'website' => 'nullable|string',
-            'phone_number' => 'required|integer',
-            'gender' => 'required|string|max:6',
-            'bio' => 'nullable|string|max:200',
-            // 'image' => ['regex:/(\d)+.(?:jpe?g|png|gif)/'],
 
-        ]);
+        if ($request->file('avatar')) {
 
+            $imgName = $request->file('avatar')->hashName();
+            $path = $request->file('avatar')->storeAs(
+                'public/images/avatars',
+                $imgName
+            );
+            $user->avatar = $imgName;
+        }
 
-        $user->image = 'default.png';
         strlen($request->name) > 0 ? $user->name = $request->name : '';
         strlen($request->bio) > 0 ? $user->bio = $request->bio : '';
         strlen($request->user_name) > 0 ? $user->user_name = $request->user_name : '';

@@ -1,20 +1,24 @@
-<form class="user" method="POST" action="{{ route('profile.update') }}">
+<form class="user" method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
     @method('PUT')
     @csrf
     <div class="">
 
-        <div class="avatar-upload" {{ "data-image=\"".asset("images/avatar/".$user->image)."\"" }}>
-            <img class="avatar-preview" id="output" src=" {{asset('images/avatar/'. $user->image) }}">
+        <div class="avatar-upload" {{ "data-image=\"".asset("images/avatar/".$user->avatar)."\"" }}>
+            <img class="avatar-preview" id="output" src=" {{asset('storage/images/avatars/'. $user->avatar) }}">
         </div>
         <div class="row text-center justify-content-center">
             <div class="col-xl-8">
                 <div class="form-group mb-3">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="customFile" onchange="loadFile(event)"
-                            accept=".png, .jpg, .jpeg" name="image">
+                            name="avatar">
                         <label class="custom-file-label" for="customFile" id="labelIMG">Choose file</label>
                     </div>
-
+                    @error('avatar')
+                    <span class="text-danger" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
             </div>
         </div>

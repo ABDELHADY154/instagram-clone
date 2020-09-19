@@ -15,7 +15,8 @@
         "laravel/framework": "^7.24",
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "2.4"
+        "laravel/ui": "2.4",
+        "overtrue/laravel-follow": "^2.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

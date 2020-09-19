@@ -33,4 +33,13 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     Route::get('/profile/setting/disable', 'UserController@disable')->name('profile.disable');
     Route::put('/profile/setting/update-password', 'UserController@updatePassword')->name('profile.updatePassword');
     Route::get('/profile/{id}', 'UserController@profileView')->name('profile.view');
+    Route::resource('/post', 'PostController');
+
+    // *********Follow************//
+    Route::get('/follow/{id}', 'FollowController@follow')->name('follow-user');
+    Route::get('/unfollow/{id}', 'FollowController@unfollow')->name('unfollow-user');
+    Route::get('/followers', 'FollowController@profileFollowers')->name('profile-followers');
+    Route::get('/following', 'FollowController@profileFollowing')->name('profile-following');
+    Route::get('/followers/{id}', 'FollowController@followersList')->name('followers-list');
+    Route::get('/following/{id}', 'FollowController@followingList')->name('following-list');
 });

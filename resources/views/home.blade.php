@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('title','Home')
 @section('content')
 <div class="container">
@@ -36,9 +35,7 @@
                 </div>
             </div>
             @endforeach
-
-            {{-- <div class="loader mt-2"></div> --}}
-
+            <div class="loader mt-2"></div>
         </div>
     </div>
 </div>

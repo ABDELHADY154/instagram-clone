@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -24,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.Post.create');
     }
 
     /**
@@ -33,9 +36,26 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        // $user = User::find(Auth::id());
+
+        // if ($request->file('image')) {
+
+        //     $imgName = $request->file('avatar')->hashName();
+        //     $path = $request->file('avatar')->storeAs(
+        //         'public/images/posts',
+        //         $imgName
+        //     );
+        //     $user->avatar = $imgName;
+        // }
+
+        // $input = $request->all();
+        $tags = explode(",", $request->tags);
+        // $post = Post::create($input);
+        // $post->tag($tags);
+
+        dd($tags);
     }
 
     /**

@@ -25,9 +25,10 @@ class UserController extends Controller
         $id = auth()->user()->id;
         $user = User::find($id);
         $posts = Post::where('user_id', $id)->get();
+        $savedPosts = $user->getFavoriteItems(Post::class)->get();
 
         return view('layouts.User.index', [
-            'posts' => $posts,  'user' => $user,
+            'posts' => $posts,  'user' => $user, 'savedPosts' => $savedPosts
         ]);
     }
 

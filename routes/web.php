@@ -42,4 +42,8 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     Route::get('/following', 'FollowController@profileFollowing')->name('profile-following');
     Route::get('/followers/{id}', 'FollowController@followersList')->name('followers-list');
     Route::get('/following/{id}', 'FollowController@followingList')->name('following-list');
+
+    // *********SAVE POST************//
+    Route::get('/save/{id}', 'SavePostController@savePost')->name('save-post');
+    Route::get('/unSave/{id}', 'SavePostController@unSavePost')->name('unSave-post');
 });

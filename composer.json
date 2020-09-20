@@ -16,7 +16,9 @@
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
-        "overtrue/laravel-follow": "^2.2"
+        "overtrue/laravel-favorite": "^2.1",
+        "overtrue/laravel-follow": "^2.2",
+        "rtconner/laravel-tagging": "~4.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

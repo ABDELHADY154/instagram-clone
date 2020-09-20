@@ -6,12 +6,13 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Overtrue\LaravelFavorite\Traits\Favoriter;
 use Overtrue\LaravelFollow\Followable;
 
 class User extends Authenticatable
 {
 
-    use Notifiable, SoftDeletes, Followable;
+    use Notifiable, SoftDeletes, Followable, Favoriter;
 
     /**
      * The attributes that are mass assignable.

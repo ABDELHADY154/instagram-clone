@@ -15,7 +15,6 @@ class FollowController extends Controller
         $user1 = Auth::user();
         $user2 = User::find($id);
         $user1->follow($user2);
-        // dd($user1->followings);
         return redirect(route('profile.view', $user2->id));
     }
 
@@ -32,7 +31,6 @@ class FollowController extends Controller
 
         $user = auth()->user();
         $users = $user->followers;
-        // dd($users);
         return view('layouts.User.follow.followersList', [
             'users' => $users,
         ]);
@@ -42,7 +40,6 @@ class FollowController extends Controller
     {
         $user = auth()->user();
         $users = $user->followings;
-        // dd($users);
         return view('layouts.User.follow.followingList', [
             'users' => $users,
         ]);

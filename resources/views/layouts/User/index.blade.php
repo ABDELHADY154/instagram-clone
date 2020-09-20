@@ -18,7 +18,7 @@
 
                 <div class="profilee-user-settings">
                     <h1 class="profilee-user-name">{{$user->user_name}}</h1>
-                    <a href="{{route('profile.edit')}}" class="btn profilee-edit-btn">Edit Profilee</a>
+                    <a href="{{route('profile.edit')}}" class="btn profilee-edit-btn">Edit Profile</a>
                     <a href="{{route('profile.setting')}}" class="btn profilee-settings-btn"
                         aria-label="profilee settings"><i class="fas fa-cog" aria-hidden="true"></i></a>
                 </div>
@@ -48,6 +48,84 @@
 
     </div>
 
+</div>
+<div class="row justify-content-center">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active btn btn-outline-secondary" id="pills-home-tab" data-toggle="pill"
+                href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="fas fa-th"></i>
+                Posts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-secondary" id="pills-profile-tab" data-toggle="pill"
+                href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><i
+                    class="far fa-bookmark"></i> Saved Posts</a>
+        </li>
+
+    </ul>
+
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="container-img">
+                <div class="gallery">
+                    <div class="row">
+                        @foreach($posts as $post)
+                        <div class="col-4">
+                            <div class="gallery-item mt-4" tabindex="0">
+                                <div class="gallery-image" style="">
+                                    <img src="{{ asset('images/posts/'. $post->image) }}" class="gallery-image" alt="">
+                                </div>
+                                <a href="{{route('post.show',$post)}}" style="color:white">
+                                    <div class="gallery-item-info">
+                                        <ul>
+                                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i
+                                                    class="fas fa-heart" aria-hidden="true"></i> {{$post->like_no}}</li>
+                                            <li class="gallery-item-comments"><span
+                                                    class="visually-hidden">Comments:</span><i class="fas fa-comment"
+                                                    aria-hidden="true"></i> {{$post->comment_no}}</li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="loader"></div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div class="container-img">
+                <div class="gallery">
+                    <div class="row">
+                        @foreach($savedPosts as $savedPost)
+                        <div class="col-4">
+                            <div class="gallery-item mt-4" tabindex="0">
+                                <div class="gallery-image" style="">
+                                    <img src="{{ asset('images/posts/'. $savedPost->image) }}" class="gallery-image"
+                                        alt="">
+                                </div>
+                                <a href="{{route('post.show',$savedPost)}}" style="color:white">
+                                    <div class="gallery-item-info">
+                                        <ul>
+                                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i
+                                                    class="fas fa-heart" aria-hidden="true"></i> {{$savedPost->like_no}}
+                                            </li>
+                                            <li class="gallery-item-comments"><span
+                                                    class="visually-hidden">Comments:</span><i class="fas fa-comment"
+                                                    aria-hidden="true"></i> {{$savedPost->comment_no}}</li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div>
 </div>
 @else
 <div class="container">
@@ -104,9 +182,7 @@
 
 
     </div>
-
 </div>
-@endif
 <hr>
 <div class="container-img">
     <div class="gallery">
@@ -134,5 +210,7 @@
     </div>
     <div class="loader"></div>
 </div>
+@endif
+
 
 @endsection

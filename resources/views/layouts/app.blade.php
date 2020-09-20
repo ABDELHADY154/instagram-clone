@@ -26,13 +26,18 @@
     <link rel="icon"
         href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/768px-Instagram_logo_2016.svg.png">
 
+    {{-- <link rel="stylesheet" --}}
+    {{-- href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" /> --}}
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" />
+    <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 </head>
-
 
 <body>
     {{-- @yield('css') --}}
 
-    <div id="app">
+    <div id=" app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}" style="font-family: 'Sacramento'; font-size: 2rem">
@@ -53,6 +58,11 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mt-1">
+
+                            <a href="{{route('post.create')}}" class="nav-link" style="font-size: 1.5rem"> <i
+                                    class="far fa-plus-square"></i></a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
@@ -64,10 +74,7 @@
                         </li>
                         @endif
                         @else
-                        {{-- <li class="nav-item">
-                            <a href="" class="nav-link"><i class="fas fa-home"></i></a>
 
-                        </li> --}}
                         <li class="nav-item dropdown">
                             {{-- <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                                 <img src="http://placehold.it/18x18" class="profileee-image img-circle"> Username <b

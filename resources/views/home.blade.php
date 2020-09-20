@@ -18,8 +18,18 @@
                         style="max-height: 30rem" />
                 </div>
                 <div class="Instagram-card-content">
-                    <a class="footer-action-icons mr-2" href="#"><i class="fa fa-heart-o"></i></a>
-                    <a class="footer-action-icons" href="#"><i class="far fa-comment"></i></a>
+                    <a class="footer-action-icons mr-2" href="#" style="font-size: 1.5rem"><i
+                            class="fa fa-heart-o"></i></a>
+                    <a class="footer-action-icons" href="#"><i class="far fa-comment" style="font-size: 1.5rem"></i></a>
+                    @if(Auth::user()->hasFavorited($post))
+                    <a class="footer-action-icons float-right" href="{{route('unSave-post',$post->id)}}"
+                        style="font-size: 1.5rem"><i class="fas fa-bookmark"></i></a>
+                    @else
+                    <a class="footer-action-icons float-right" href="{{route('save-post',$post->id)}}"
+                        style="font-size: 1.5rem"><i class="far fa-bookmark"></i></a>
+                    @endif
+
+
                     <p class="Likes">{{$post->like_no}} Likes</p>
                     <p><a class="Instagram-card-content-user"
                             href="https://www.instagram.com/rogersbase/">{{$post->user->user_name}}
@@ -39,39 +49,4 @@
         </div>
     </div>
 </div>
-
 @endsection
-{{-- <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}
-</div>
-
-<div class="card-body">
-    @if (session('status'))
-    <div class="alert alert-success" role="alert">
-        {{ session('status') }}
-    </div>
-    @endif
-
-    {{ __('You are logged in!') }}
-</div>
-</div> --}}
-{{-- I GOT TO PLAY NINTENDO SWITCH
-                    ON #NINTENDO MINUTE! 😱 So happy that I can finally talk about this! @kitellis and
-                    @breath0air told me that we were going to be playing <a class="hashtag"
-                        href="https://www.instagram.com/explore/tags/poochy/">#Poochy
-                    </a> and <a class="hashtag" href="https://www.instagram.com/explore/tags/yoshi/">#Yoshi</a> but
-                    ended up surprising me with a private <a class="hashtag"
-                        href="https://www.instagram.com/explore/tags/nintendoswitch/">#NintendoSwitch</a> play
-                    session. I had the opportunity to play The Legend of <a class="hashtag"
-                        href="https://www.instagram.com/explore/tags/zelda/">#Zelda</a> <a class="hashtag"
-                        href="https://www.instagram.com/explore/tags/breathofthewild/">#BreathOfTheWild</a> and <a
-                        class="hashtag" href="https://www.instagram.com/explore/tags/12switch/">#12Switch</a>, both
-                    of which were a ton of fun! Massive thank you to the team at @Nintendo for having me on! I had
-                    an absolute blast! 🎉 --}}
-{{-- <p class="comments">View all {{$post->comment_no}} comments</p>
-<br><a class="user-comment" href="https://www.instagram.com/chrisobrien64/">chrisobrien64</a> NO
-WAY! WAY TO GO ROGER MY BOI</br>
-<br><a class="user-comment" href="https://www.instagram.com/artie_mcparty/">artie_mcparty</a> ROGER
-= BEST NINTENDO FAN.<br>
-<br><a class="user-comment" href="https://www.instagram.com/theealeexj/">theealeexj</a> I JUST TRIED
-IT OUT TODAY ITS AMAZING<br> --}}

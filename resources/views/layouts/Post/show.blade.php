@@ -18,8 +18,18 @@
                         style="max-height: 30rem" />
                 </div>
                 <div class="Instagram-card-content">
-                    <a class="footer-action-icons mr-2" href="#"><i class="fa fa-heart-o"></i></a>
-                    <a class="footer-action-icons" href="#"><i class="far fa-comment"></i></a>
+                    <a class="footer-action-icons mr-2" href="#" style="font-size: 1.5rem"><i
+                            class="fa fa-heart-o"></i></a>
+                    <a class="footer-action-icons" href="#"><i class="far fa-comment" style="font-size: 1.5rem"></i></a>
+                    @if(Auth::user()->hasFavorited($post))
+                    <a class="footer-action-icons float-right" href="{{route('unSave-post',$post->id)}}"
+                        style="font-size: 1.5rem"><i class="fas fa-bookmark"></i></a>
+                    @else
+                    <a class="footer-action-icons float-right" href="{{route('save-post',$post->id)}}"
+                        style="font-size: 1.5rem"><i class="far fa-bookmark"></i></a>
+                    @endif
+
+
                     <p class="Likes">{{$post->like_no}} Likes</p>
                     <p><a class="Instagram-card-content-user"
                             href="https://www.instagram.com/rogersbase/">{{$post->user->user_name}}

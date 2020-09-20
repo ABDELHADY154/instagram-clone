@@ -73,7 +73,8 @@
                         <div class="col-4">
                             <div class="gallery-item mt-4" tabindex="0">
                                 <div class="gallery-image" style="">
-                                    <img src="{{ asset('images/posts/'. $post->image) }}" class="gallery-image" alt="">
+                                    <img src="{{asset('storage/images/posts/'. $post->image) }}" class="gallery-image"
+                                        alt="">
                                 </div>
                                 <a href="{{route('post.show',$post)}}" style="color:white">
                                     <div class="gallery-item-info">
@@ -98,12 +99,13 @@
             <div class="container-img">
                 <div class="gallery">
                     <div class="row">
+                        @if(isset($savedPosts))
                         @foreach($savedPosts as $savedPost)
                         <div class="col-4">
                             <div class="gallery-item mt-4" tabindex="0">
                                 <div class="gallery-image" style="">
-                                    <img src="{{ asset('images/posts/'. $savedPost->image) }}" class="gallery-image"
-                                        alt="">
+                                    <img src="{{ asset('storage/images/posts/'. $savedPost->image) }}"
+                                        class="gallery-image" alt="">
                                 </div>
                                 <a href="{{route('post.show',$savedPost)}}" style="color:white">
                                     <div class="gallery-item-info">
@@ -120,6 +122,8 @@
                             </div>
                         </div>
                         @endforeach
+                        @endif
+
                     </div>
                 </div>
                 <div class="loader"></div>
@@ -191,7 +195,7 @@
             <div class="col-4">
                 <div class="gallery-item mt-4" tabindex="0">
                     <div class="gallery-image" style="">
-                        <img src="{{ asset('images/posts/'. $post->image) }}" class="gallery-image" alt="">
+                        <img src="{{ asset('storage/images/posts/'. $post->image) }}" class="gallery-image" alt="">
                     </div>
                     <a href="{{route('post.show',$post)}}" style="color:white">
                         <div class="gallery-item-info">
@@ -211,6 +215,4 @@
     <div class="loader"></div>
 </div>
 @endif
-
-
 @endsection

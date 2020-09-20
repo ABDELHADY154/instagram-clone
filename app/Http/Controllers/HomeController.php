@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,7 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'ASC')->get();
-        return view('home', ['posts' => $posts]);
+        $posts = Post::orderBy('created_at', 'desc')->with('tagged')->get();
+        $users = User::all();
+
+        return view('home', ['posts' => $posts, 'users' => $users]);
+    }
+
+    public function search()
+    {
+        $users = User::all();
+        return view('layouts.search', ['users' => $users]);
     }
 }

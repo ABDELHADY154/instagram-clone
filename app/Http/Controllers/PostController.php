@@ -38,24 +38,30 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        // $user = User::find(Auth::id());
+        $user = User::find(Auth::id());
 
-        // if ($request->file('image')) {
+        if ($request->file('image')) {
 
-        //     $imgName = $request->file('avatar')->hashName();
-        //     $path = $request->file('avatar')->storeAs(
-        //         'public/images/posts',
-        //         $imgName
-        //     );
-        //     $user->avatar = $imgName;
-        // }
-
+            $imgName = $request->file('image')->hashName();
+            $path = $request->file('image')->storeAs(
+                'public/images/posts',
+                $imgName
+            );
+            // $user->avatar = $imgName;
+        }
         // $input = $request->all();
         $tags = explode(",", $request->tags);
-        // $post = Post::create($input);
-        // $post->tag($tags);
+        $post = Post::create([
+            'user_id' => $user->id,
+            'caption' => $request->caption,
+            'like_no' => 200,
+            'comment_no' => 150,
+            'image' => $imgName
+        ]);
+        $post->tag($tags);
 
-        dd($tags);
+        return redirect(route('home'));
+        // dd($tags);
     }
 
     /**

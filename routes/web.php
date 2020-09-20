@@ -33,7 +33,8 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     Route::get('/profile/setting/disable', 'UserController@disable')->name('profile.disable');
     Route::put('/profile/setting/update-password', 'UserController@updatePassword')->name('profile.updatePassword');
     Route::get('/profile/{id}', 'UserController@profileView')->name('profile.view');
-    Route::resource('/post', 'PostController');
+    Route::get('/search', 'HomeController@search')->name('search');
+    Route::resource('/post', 'PostController')->except(['index', 'edit', 'update', 'destroy']);
 
     // *********Follow************//
     Route::get('/follow/{id}', 'FollowController@follow')->name('follow-user');
@@ -46,4 +47,12 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     // *********SAVE POST************//
     Route::get('/save/{id}', 'SavePostController@savePost')->name('save-post');
     Route::get('/unSave/{id}', 'SavePostController@unSavePost')->name('unSave-post');
+
+
+    // *********LIKE************//
+    Route::get('like/{id}', 'LikeController@like')->name('like');
+    Route::get('unlike/{id}', 'LikeController@unlike')->name('unlike');
+
+    // *********Comment************//
+    Route::post('/comment/{id}', 'CommentController@comment')->name('comment');
 });

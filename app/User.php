@@ -2,17 +2,19 @@
 
 namespace App;
 
+use Actuallymab\LaravelComment\CanComment;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Overtrue\LaravelFavorite\Traits\Favoriter;
 use Overtrue\LaravelFollow\Followable;
+use Overtrue\LaravelLike\Traits\Liker;
 
 class User extends Authenticatable
 {
 
-    use Notifiable, SoftDeletes, Followable, Favoriter;
+    use Notifiable, SoftDeletes, Followable, Favoriter, Liker, CanComment;
 
     /**
      * The attributes that are mass assignable.

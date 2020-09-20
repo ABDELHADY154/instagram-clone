@@ -11,7 +11,7 @@ $factory->define(Post::class, function (Faker $faker) {
         'user_id' => rand(1, User::all()->count()),
         'image' => 'demo' . rand(1, 5) . '.jpg',
         'caption' => $faker->text(200),
-        'like_no' => rand(10, 500),
-        'comment_no' => rand(10, 500),
+        'like_no' => 0,
+        'comment_no' => 0,
     ];
 });

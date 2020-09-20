@@ -14,35 +14,60 @@
 
                 </div>
                 <div class="Instagram-card-image">
-                    <img src="{{ asset('images/posts/'. $post->image) }}" class="gallery-image"
+                    <img src="{{ asset('storage/images/posts/'. $post->image) }}" class="gallery-image"
                         style="max-height: 30rem" />
                 </div>
                 <div class="Instagram-card-content">
-                    <a class="footer-action-icons mr-2" href="#" style="font-size: 1.5rem"><i
-                            class="fa fa-heart-o"></i></a>
-                    <a class="footer-action-icons" href="#"><i class="far fa-comment" style="font-size: 1.5rem"></i></a>
+                    @if(Auth::user()->hasLiked($post))
+                    <a class="footer-action-icons mr-2" href="{{route('unlike',$post->id)}}"
+                        style="font-size: 1.5rem; color:#ed4956">
+                        <i class="fas fa-heart"></i></a>
+                    @else
+                    <a class="footer-action-icons mr-2" href="{{route('like',$post->id)}}"
+                        style="font-size: 1.5rem ;color:black"><i class="fa fa-heart-o"></i></a>
+                    @endif
+
+
+                    <a class="footer-action-icons" href="{{route('post.show',$post->id)}}"><i class="far fa-comment"
+                            style="font-size: 1.5rem;color:black"></i></a>
                     @if(Auth::user()->hasFavorited($post))
                     <a class="footer-action-icons float-right" href="{{route('unSave-post',$post->id)}}"
-                        style="font-size: 1.5rem"><i class="fas fa-bookmark"></i></a>
+                        style="font-size: 1.5rem;color:black"><i class="fas fa-bookmark"></i></a>
                     @else
                     <a class="footer-action-icons float-right" href="{{route('save-post',$post->id)}}"
-                        style="font-size: 1.5rem"><i class="far fa-bookmark"></i></a>
+                        style="font-size: 1.5rem;color:black"><i class="far fa-bookmark"></i></a>
                     @endif
 
 
                     <p class="Likes">{{$post->like_no}} Likes</p>
                     <p><a class="Instagram-card-content-user"
-                            href="https://www.instagram.com/rogersbase/">{{$post->user->user_name}}
+                            href="{{route('profile.view',$post->user->id)}}">{{$post->user->user_name}}
                         </a> | {{$post->caption}}</p>
-                    <p class="comments">View all {{$post->comment_no}} comments</p>
+                    <p>
+                        @foreach($post->tagNames() as $postTag)
+                        <a class="Instagram-card-content-user" href="#">
+                            {{$postTag}}
+                        </a>
+                        @endforeach
+
+                    </p>
+                    {{-- @php
+                    var_dump($post->tagNames());
+                    @endphp --}}
+                    <p class="comments"><a href="{{route('post.show',$post->id)}}">View all
+                            {{$post->totalCommentsCount()}} comments</a></p>
                     <hr>
                 </div>
+                <form action="{{route('comment',$post->id)}}" method="POST">
+                    @csrf
+                    <div class="Instagram-card-footer">
+                        <input class="comments-input" name="comment" id="comment" type="text"
+                            placeholder="Add a comment..." />
+                        <input type="submit" class="btn btn-outline-secondary" value="Post">
+                    </div>
+                </form>
 
-                <div class="Instagram-card-footer">
-                    <a class="footer-action-icons" href="#"><i class="fa fa-heart-o"></i></a>
-                    <input class="comments-input" type="text" placeholder="Add a comment..." />
-                    <a class="footer-action-icons" href="#"><i class="fa fa-ellipsis-h"></i></a>
-                </div>
+
             </div>
             @endforeach
             <div class="loader mt-2"></div>

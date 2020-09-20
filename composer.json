@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "actuallymab/laravel-comment": "^1.0",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
@@ -18,6 +19,7 @@
         "laravel/ui": "2.4",
         "overtrue/laravel-favorite": "^2.1",
         "overtrue/laravel-follow": "^2.2",
+        "overtrue/laravel-like": "^2.0",
         "rtconner/laravel-tagging": "~4.0"
     },
     "require-dev": {

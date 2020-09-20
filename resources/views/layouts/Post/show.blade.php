@@ -44,9 +44,10 @@
                             href="{{route('profile.view',$post->user->id)}}">{{$post->user->user_name}}
                         </a> | {{$post->caption}}</p>
                     <p>
-                        @foreach($post->tagNames() as $postTag)
-                        <a class="Instagram-card-content-user" href="#">
-                            {{$postTag}}
+                        @foreach($post->tags as $postTag)
+                        <a class="Instagram-card-content-user" style="color:#00376b"
+                            href="{{route('tag-show',$postTag->id)}}">
+                            {{$postTag->name}}
                         </a>
                         @endforeach
 

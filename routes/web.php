@@ -55,4 +55,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
 
     // *********Comment************//
     Route::post('/comment/{id}', 'CommentController@comment')->name('comment');
+
+    // *********TAG************//
+    Route::get('/tag/{id}', 'TagController@show')->name('tag-show');
 });

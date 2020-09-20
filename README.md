@@ -14,7 +14,12 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 ## Installing
 
 ```shell
-$ composer require overtrue/laravel-follow -vvv
+composer install
+php artisan key:generate
+php artisan migrate
+php artisan storage:link
+php artisan serve
+
 ```
 
 -   [Simple, fast routing engine](https://laravel.com/docs/routing).

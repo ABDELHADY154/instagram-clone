@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,8 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->with('tagged')->get();
-
+        $user = Auth::user();
+        $users = $user->followings;
+        $idArr = [];
+        $idArr[] = $user->id;
+        foreach ($users as $following) {
+            $idArr[] = $following->id;
+        }
+        $posts = Post::orderBy('created_at', 'desc')->whereIn('user_id',  $idArr)->get();
 
         return view('home', ['posts' => $posts]);
     }

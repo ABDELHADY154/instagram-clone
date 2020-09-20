@@ -25,8 +25,8 @@
                             <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade show active" id="v-pills-setting" role="tabpanel"
                                     aria-labelledby="v-pills-setting-tab">
-                                    <h3>Click to disable your account</h3>
-                                    <a href="{{route('profile.disable')}}" class="btn btn-danger">Disable Account</a>
+                                    <h3>Click to delete your account</h3>
+                                    <a href="{{route('profile.disable')}}" class="btn btn-danger">Delete Account</a>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-password" role="tabpanel"
                                     aria-labelledby="v-pills-password-tab">

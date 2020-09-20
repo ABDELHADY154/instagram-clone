@@ -14,7 +14,7 @@ use Overtrue\LaravelLike\Traits\Liker;
 class User extends Authenticatable
 {
 
-    use Notifiable, SoftDeletes, Followable, Favoriter, Liker, CanComment;
+    use Notifiable, Followable, Favoriter, Liker, CanComment;
 
     /**
      * The attributes that are mass assignable.

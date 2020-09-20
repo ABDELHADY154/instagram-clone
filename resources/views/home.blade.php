@@ -38,8 +38,12 @@
                         style="font-size: 1.5rem;color:black"><i class="far fa-bookmark"></i></a>
                     @endif
 
-
+                    @if($post->like_no == 0)
+                    <p class="Likes">be the first to Like</p>
+                    @else
                     <p class="Likes">{{$post->like_no}} Likes</p>
+
+                    @endif
                     <p><a class="Instagram-card-content-user"
                             href="{{route('profile.view',$post->user->id)}}">{{$post->user->user_name}}
                         </a> | {{$post->caption}}</p>

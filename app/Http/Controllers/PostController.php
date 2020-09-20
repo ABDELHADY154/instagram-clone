@@ -54,8 +54,8 @@ class PostController extends Controller
         $post = Post::create([
             'user_id' => $user->id,
             'caption' => $request->caption,
-            'like_no' => 200,
-            'comment_no' => 150,
+            'like_no' => 0,
+            'comment_no' => 0,
             'image' => $imgName
         ]);
         $post->tag($tags);

@@ -26,9 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->with('tagged')->get();
-        $users = User::all();
 
-        return view('home', ['posts' => $posts, 'users' => $users]);
+
+        return view('home', ['posts' => $posts]);
     }
 
     public function search()

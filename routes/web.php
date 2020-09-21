@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 // ******Facebook Login*******//
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider')->name('login-facebook');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback')->name('facebook-callback');
@@ -28,7 +28,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     Route::resource('/profile', 'UserController')->except(['index', 'edit', 'show', 'update']);
     Route::get('/profile', 'UserController@index')->name('profile');
     Route::get('/profile/edit', 'UserController@edit')->name('profile.edit');
-    Route::put('/profile/update', 'UserController@update')->name('profile.update');
+    Route::put('/profile/update', 'UserController@update')->name('profile.update')->middleware('verified');
     Route::get('/profile/setting', 'UserController@setting')->name('profile.setting');
     Route::get('/profile/setting/disable', 'UserController@disable')->name('profile.disable');
     Route::put('/profile/setting/update-password', 'UserController@updatePassword')->name('profile.updatePassword');

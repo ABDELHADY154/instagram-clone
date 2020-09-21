@@ -11,7 +11,7 @@ use Overtrue\LaravelFavorite\Traits\Favoriter;
 use Overtrue\LaravelFollow\Followable;
 use Overtrue\LaravelLike\Traits\Liker;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
 
     use Notifiable, Followable, Favoriter, Liker, CanComment;

@@ -16,7 +16,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'verified']);
     }
 
 
@@ -43,7 +43,9 @@ class UserController extends Controller
     public function update(editProfileRequest $request)
     {
         $user = User::find(Auth::id());
-
+        if ($user->email !== $request->email) {
+            $user->email_verified_at = null;
+        }
         if ($request->file('avatar')) {
 
             $imgName = $request->file('avatar')->hashName();
@@ -54,6 +56,8 @@ class UserController extends Controller
             $user->avatar = $imgName;
         }
 
+
+
         strlen($request->name) > 0 ? $user->name = $request->name : '';
         strlen($request->bio) > 0 ? $user->bio = $request->bio : '';
         strlen($request->user_name) > 0 ? $user->user_name = $request->user_name : '';
@@ -61,6 +65,8 @@ class UserController extends Controller
         strlen($request->phone_number) > 0 ? $user->phone_number = $request->phone_number : '';
         strlen($request->gender) > 0 ? $user->gender = $request->gender : '';
         strlen($request->website) > 0 ? $user->website = $request->website : '';
+
+
 
         $user->save();
         return redirect(route('profile'));
@@ -100,5 +106,13 @@ class UserController extends Controller
         return view('layouts.User.index', [
             'posts' => $posts,  'user' => $user,
         ]);
+    }
+
+    public function emailVerification()
+    {
+        $user = User::find(Auth::id());
+        // $query = DB::table('users')->select('email')->where('id', '=', $user->id)->first(); //find user and his e-mail
+
+
     }
 }

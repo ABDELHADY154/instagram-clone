@@ -47,23 +47,24 @@
 
 
     </div>
+    <hr>
+    <div class="row justify-content-center text-center">
 
-</div>
-<hr>
-<div class="row justify-content-center text-center">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active btn btn-outline-secondary" id="pills-home-tab" data-toggle="pill"
+                    href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i
+                        class="fas fa-th"></i>
+                    Posts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-outline-secondary" id="pills-profile-tab" data-toggle="pill"
+                    href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+                    <i class="far fa-bookmark"></i> Saved Posts</a>
+            </li>
+        </ul>
 
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active btn btn-outline-secondary" id="pills-home-tab" data-toggle="pill"
-                href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="fas fa-th"></i>
-                Posts</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link btn btn-outline-secondary" id="pills-profile-tab" data-toggle="pill"
-                href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
-                <i class="far fa-bookmark"></i> Saved Posts</a>
-        </li>
-    </ul>
+    </div>
 
 </div>
 <div class="tab-content" id="pills-tabContent">

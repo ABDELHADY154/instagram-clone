@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}" style="font-family: 'Sacramento'; font-size: 2rem">
             <i class="fab fa-instagram-square"></i> |
@@ -72,3 +72,5 @@
         </div>
     </div>
 </nav>
+<br><br>
+<br>

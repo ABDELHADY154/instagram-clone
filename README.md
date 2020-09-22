@@ -17,6 +17,9 @@ php artisan storage:link
 php artisan db:seed
 php artisan serve
 
+User1: admin@admin.com . 123123123
+User2: admin@gmail.com . 123213123
+
 ```
 
 ## About Laravel

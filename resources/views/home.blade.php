@@ -38,11 +38,13 @@
                         style="font-size: 1.5rem;color:black"><i class="far fa-bookmark"></i></a>
                     @endif
 
-                    @if($post->like_no == 0)
-                    <p class="Likes">be the first to Like</p>
-                    @else
-                    <p class="Likes">{{$post->like_no}} Likes</p>
+                    @if($post->likes()->count() == 0)
+                    <p class="Likes">Be The First To Like</p>
+                    @elseif($post->likes()->count() ==1)
+                    <p class="Likes">{{$post->likes()->count()}} Like</p>
 
+                    @else
+                    <p class="Likes">{{$post->likes()->count()}} Likes</p>
                     @endif
                     <p><a class="Instagram-card-content-user"
                             href="{{route('profile.view',$post->user->id)}}">{{$post->user->user_name}}
@@ -56,10 +58,15 @@
                         @endforeach
 
                     </p>
-
+                    @if($post->totalCommentsCount() == 0)
+                    <p class="comments"><a href="{{route('post.show',$post->id)}}">Be The First To Comment</a></p>
+                    @else
                     <p class="comments"><a href="{{route('post.show',$post->id)}}">View all
                             {{$post->totalCommentsCount()}} comments</a></p>
+                    @endif
+
                     <hr>
+
                 </div>
                 <form action="{{route('comment',$post->id)}}" method="POST">
                     @csrf

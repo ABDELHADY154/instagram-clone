@@ -16,7 +16,7 @@ class LikeController extends Controller
         $user = Auth::user();
         $post = Post::find($id);
         $user->like($post);
-        $post->like_no = $user->likes()->count();
+        $post->like_no = $post->likes()->count();
         $post->save();
         // dd($post->like_no);
 
@@ -28,7 +28,7 @@ class LikeController extends Controller
         $user = Auth::user();
         $post = Post::find($id);
         $user->unlike($post);
-        $post->like_no = $user->likes()->count();
+        $post->like_no = $post->likes()->count();
         $post->save();
         // dd($post->like_no);
 

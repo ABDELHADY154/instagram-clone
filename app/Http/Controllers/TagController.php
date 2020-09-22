@@ -11,6 +11,7 @@ class TagController extends Controller
     public function show($id)
     {
         $tag = Tag::where('id', $id)->get();
+
         $posts = Post::withAnyTag([$tag[0]->name])->get();
         return view('layouts.tag', [
             'tag' => $tag, 'posts' => $posts

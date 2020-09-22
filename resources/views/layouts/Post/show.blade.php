@@ -39,7 +39,11 @@
                     @endif
 
 
+                    @if($post->like_no == 0)
+                    <p class="Likes">Be The First To Like</p>
+                    @else
                     <p class="Likes">{{$post->like_no}} Likes</p>
+                    @endif
                     <p><a class="Instagram-card-content-user"
                             href="{{route('profile.view',$post->user->id)}}">{{$post->user->user_name}}
                         </a> | {{$post->caption}}</p>
@@ -53,8 +57,12 @@
 
                     </p>
 
+                    @if($post->comment_no == 0)
+                    <p class="comments"><a href="{{route('post.show',$post->id)}}">Be The First To Comment</a></p>
+                    @else
                     <p class="comments"><a href="{{route('post.show',$post->id)}}">View all
                             {{$post->totalCommentsCount()}} comments</a></p>
+                    @endif
                     <hr>
                     <ul class="list-group list-group-flush">
                         @foreach($post->comments as $comment)

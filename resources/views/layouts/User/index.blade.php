@@ -38,7 +38,7 @@
 
                 <div class="profilee-bio">
                     <p><span class="profilee-real-name">{{$user->name}}</span><br>{{$user->bio}}<br>
-                        <a href="#">{{$user->website}}</a>
+                        <a href="{{$user->website}}" target="__blank">{{$user->website}}</a>
                     </p>
                 </div>
             </div>
@@ -177,7 +177,7 @@
                 <div class="profilee-bio">
 
                     <p><span class="profilee-real-name">{{$user->name}}</span><br>{{$user->bio}}<br>
-                        <a href="#">{{$user->website}}</a>
+                        <a href="{{$user->website}}" target="__blank">{{$user->website}}</a>
                     </p>
 
                 </div>
